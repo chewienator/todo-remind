@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service'; //import data service
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-home',
@@ -9,23 +10,30 @@ import { Router } from '@angular/router';
 })
 
 export class HomePage {
-  myTasks:any; //here we will hold all the list items
+
+  myTasks:Array<Task>; //here we will hold all the list of tasks
 
   constructor(
-    private data:DataService,
+    private dataService:DataService,
     private router:Router   
   ){}
 
   ionViewDidEnter(){
     console.log("loaded");
     //when view loads, get the list object from data service
-    this.myTasks = this.data.tasks;
+    this.myTasks = this.dataService.tasks;
   }
 
   //Go to task page
   editTask(task){
-    console.log("clicked on task: "+task.description);
-    this.router.navigate(['/task']);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        id: task.id
+      }
+    };
+    this.router.navigate(['/task'], navigationExtras);
+
+    console.log("clicked on task: "+task.description);    
   }
 
   deleteTask(task){
