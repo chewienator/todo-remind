@@ -3,4 +3,5 @@ export interface Task{
     description:string;    
     status:boolean;
     dueDate:string;
+    type:string;
 }

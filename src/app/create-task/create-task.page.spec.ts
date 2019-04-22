@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskPage } from './task.page';
+import { CreateTaskPage } from './create-task.page';
 
-describe('TaskPage', () => {
-  let component: TaskPage;
-  let fixture: ComponentFixture<TaskPage>;
+describe('CreateTaskPage', () => {
+  let component: CreateTaskPage;
+  let fixture: ComponentFixture<CreateTaskPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TaskPage ],
+      declarations: [ CreateTaskPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TaskPage);
+    fixture = TestBed.createComponent(CreateTaskPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

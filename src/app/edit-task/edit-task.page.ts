@@ -4,13 +4,13 @@ import { DataService } from '../data.service'; //import data service
 import { Task } from '../../models/task.model';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.page.html',
-  styleUrls: ['./task.page.scss'],
+  selector: 'app-edit-task',
+  templateUrl: './edit-task.page.html',
+  styleUrls: ['./edit-task.page.scss'],
 })
-export class TaskPage implements OnInit {
+export class EditTaskPage implements OnInit {
 
-  taskID: any;
+  taskID: any = null;
   task:Task; //just to test
  
   constructor(
@@ -27,7 +27,17 @@ export class TaskPage implements OnInit {
 
   ngOnInit() {
     console.log(this.taskID);
-    console.log(this.dataService.loadTask(this.taskID));
+    //console.log(this.dataService.loadTask(this.taskID));
+    //if there is an ID load the task
+    if(this.taskID != null){
+      this.task = this.dataService.loadTask(this.taskID);
+    }
+  }
+
+  ionViewDidEnter(){
+    //console.log("loaded");
+    //when view loads, get the list object from data service
+    //this.myTasks = this.dataService.tasks;
   }
 
 }

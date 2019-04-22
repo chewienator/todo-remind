@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Create task</ion-title>    
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-item>
+      <ion-label>Task description</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select #type [(ngModel)]="select" name="type">
+        <ion-select-option value="recurring">Recurring</ion-select-option>
+        <ion-select-option value="once">One time</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <h5>Schedule</h5>
+    </ion-item>
+    <ion-item *ngIf="type.value == 'recurring'">
+      <ion-label>Every</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Task description</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-content>
+  

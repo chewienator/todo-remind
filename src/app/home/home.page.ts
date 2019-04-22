@@ -26,12 +26,16 @@ export class HomePage {
 
   //Go to task page
   editTask(task){
+    /*
+      we need to send extra params fo the edit page knows what 
+      task are we talking about
+    */
     let navigationExtras: NavigationExtras = {
       state: {
         id: task.id
       }
     };
-    this.router.navigate(['/task'], navigationExtras);
+    this.router.navigate(['/edit-task'], navigationExtras);
 
     console.log("clicked on task: "+task.description);    
   }

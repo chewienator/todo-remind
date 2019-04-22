@@ -13,18 +13,21 @@ export class DataService {
       description:'Clean Room',    
       status:false,
       dueDate:'2019-04-30',
+      type:'once'
     },
     {
       id:2,
       description:'Buy groceries',    
       status:false,
       dueDate:'2019-04-30',
+      type:'once'
     },
     {
       id:3,
       description:'Walk the dog',    
       status:false,
       dueDate:"2019-04-30",
+      type:'recurring'
     },
   ];
 
@@ -34,7 +37,7 @@ export class DataService {
   This function searches for an object with a specific id 
   within the Tasks array, and returns that object
   */
-  loadTask(id){
+  loadTask(id):Task{
     //we will store the resulting object here
     var selectedTask:Task = null;
     //search within the current task array
